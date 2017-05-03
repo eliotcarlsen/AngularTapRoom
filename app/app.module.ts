@@ -6,10 +6,12 @@ import { AllBeerComponent } from './all-beer.component';
 import { NewBeerComponent } from './new-beer.component';
 import { EditBeerComponent } from './edit-beer.component';
 import { SoldBeerComponent } from './sold-beer.component';
+import { EmptinessPipe } from './emptiness.pipe';
+import { Type } from './type.pipe';
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, AllBeerComponent, NewBeerComponent, EditBeerComponent, SoldBeerComponent ],
+  declarations: [ AppComponent, AllBeerComponent, NewBeerComponent, EditBeerComponent, SoldBeerComponent, EmptinessPipe, Type ],
   bootstrap: [ AppComponent ]
 })
 
