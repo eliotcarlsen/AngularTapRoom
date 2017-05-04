@@ -4,15 +4,20 @@ import { Beer } from './beer.model';
 @Component({
   selector: "all-beer",
   template: `
-    <select (change)="onChange($event.target.value)">
-      <option value="allBeers">All Beers</option>
-      <option value="lowKegs">Low Kegs</option>
-    </select>
-    <select (change)="onChange1($event.target.value)">
-      <option value="IPA">IPA</option>
-      <option value="allOthers">All other Beers</option>
-    </select>
-    <div class="col-md-4" *ngFor="let currentBeer of childBeerList | emptiness:filterByEmptiness | type:filterByType">
+  <div class = "row">
+    <div class = "col-md-12">
+      <div class="form-group">
+        <label for="beerLevel">Show Beers Running Low</label>
+        <select class="form-control" id="beerLevel" (change)="onChange($event.target.value)">
+          <option value="allBeers">All Beers</option>
+          <option value="lowKegs">Low Kegs</option>
+        </select>
+      </div>
+      <label>Filter Beers by Type</label>
+      <input class="form-control" type="text" [(ngModel)]="term" />
+    </div>
+  </div>
+    <div class="col-md-4" *ngFor="let currentBeer of childBeerList | emptiness:filterByEmptiness | filter:term">
       <h3>{{currentBeer.name}}</h3>
       <h4>{{currentBeer.brand}}</h4>
       <p><strong>Style:</strong> {{currentBeer.type}}</p>
@@ -22,7 +27,7 @@ import { Beer } from './beer.model';
       <button class="btn btn-primary btn-xs" (click)="editButtonHasBeenClicked(currentBeer)">Edit</button>
       <br>
       <br>
-      <sold-beer [currentBeer]="currentBeer" (click)="soldBeer($event)"></sold-beer>
+      <sold-beer [currentBeer]="currentBeer" (change)="soldBeer($event)"></sold-beer>
     </div>
   `
 })
@@ -34,8 +39,8 @@ export class AllBeerComponent {
   editButtonHasBeenClicked(beerToEdit: Beer){
     this.clickSender.emit(beerToEdit);
   }
-
   soldBeer(clickedToSell){
+
   }
   filterByEmptiness: string = "emptyKegs";
   onChange(optionChosen){

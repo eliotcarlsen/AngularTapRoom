@@ -1,34 +1,35 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Beer } from './beer.model';
 
 @Component ({
   selector: 'new-beer',
   template:`
     <h1>New Beer</h1>
-    <div>
+    <div class="form-group">
       <label>Enter New Beer Name:</label>
-      <input #newName>
+      <input class="form-control" #newName>
     </div>
-    <div>
+    <div class="form-group">
       <label>Enter Brand:</label>
-      <input #newBrand>
+      <input class="form-control" #newBrand>
     </div>
-    <div>
+    <div class="form-group">
       <label>Enter Type:</label>
-      <input #newType>
+      <input class="form-control" #newType>
     </div>
-    <div>
+    <div class="form-group">
       <label>Enter Price:</label>
-      <input #newPrice>
+      <input class="form-control" #newPrice>
     </div>
-    <div>
+    <div class="form-group">
       <label>Enter Alcohol Content:</label>
-      <input #newAlcoholContent>
+      <input class="form-control" #newAlcoholContent>
     </div>
-    <button (click)="submitNewBeer(newName.value, newBrand.value, newType.value, newPrice.value, newAlcoholContent.value); newName.value=''; newBrand.value=''; newType.value=''; newPrice.value=''; newAlcoholContent.value='';">Add</button>
+      <button class="btn btn-success" (click)="submitNewBeer(newName.value, newBrand.value, newType.value, newPrice.value, newAlcoholContent.value); newName.value=''; newBrand.value=''; newType.value=''; newPrice.value=''; newAlcoholContent.value='';">Add</button>
   `
 })
 export class NewBeerComponent {
+  @Input() childBeerList: Beer[];
   @Output() newBeerSender = new EventEmitter();
 
   submitNewBeer(name: string, brand: string, type: string, price: number, alcoholContent: string) {

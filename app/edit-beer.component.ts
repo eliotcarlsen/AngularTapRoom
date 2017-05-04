@@ -8,17 +8,31 @@ import { Beer } from './beer.model';
       <h3>{{childSelectedBeer.name}}</h3>
       <h4>{{childSelectedBeer.brand}}</h4>
       <hr>
-      <label>Enter New Name:</label>
-      <input [(ngModel)]="childSelectedBeer.name">
-      <label>Enter New Brand:</label>
-      <input [(ngModel)]="childSelectedBeer.brand">
-      <label>Enter New Type:</label>
-      <input [(ngModel)]="childSelectedBeer.type">
-      <label>Enter New Price:</label>
-      <input [(ngModel)]="childSelectedBeer.price">
-      <label>Enter New Alcohol Content:</label>
-      <input [(ngModel)]="childSelectedBeer.alcoholContent">
-      <button (click)="doneButtonClicked()">Done</button>
+      <div class="form-group">
+        <label>Enter New Name:</label>
+        <input class="form-control" [(ngModel)]="childSelectedBeer.name">
+      </div>
+      <div class="form-group">
+        <label>Enter New Brand:</label>
+        <input class="form-control" [(ngModel)]="childSelectedBeer.brand">
+      </div>
+      <div class="form-group">
+        <label>Enter New Type:</label>
+        <input class="form-control" [(ngModel)]="childSelectedBeer.type">
+      </div>
+      <div class="form-group">
+        <label>Enter New Price:</label>
+        <input class="form-control" [(ngModel)]="childSelectedBeer.price">
+      </div>
+      <div class="form-group">
+        <label>Enter New Alcohol Content:</label>
+        <input class="form-control" [(ngModel)]="childSelectedBeer.alcoholContent">
+      </div>
+      <div class="form-group">
+        <label>Enter New Quantity:</label>
+        <input class="form-control" [(ngModel)]="childSelectedBeer.pints">
+      </div>
+      <button class="btn btn-success" (click)="doneButtonClicked()">Done</button>
     </div>
   `
 })

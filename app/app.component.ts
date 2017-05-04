@@ -11,10 +11,10 @@ import { Beer } from './beer.model';
         <all-beer [childBeerList]="masterBeerList" (clickedToSell)="soldBeer($event)" (clickSender)="editBeer($event)"></all-beer>
       </div>
     <div>
-      <edit-beer [childSelectedBeer]="selectedBeer" (doneButtonClickedSender)="finishedEditing()"></edit-beer>
-    </div>
-    <div>
     <div class="col-md-3">
+    <div>
+    <edit-beer [childSelectedBeer]="selectedBeer" (doneButtonClickedSender)="finishedEditing()"></edit-beer>
+    </div>
       <new-beer (newBeerSender)="addBeer($event)"></new-beer>
     </div>
   </div>
