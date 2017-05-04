@@ -17,16 +17,17 @@ import { Beer } from './beer.model';
     </div>
       <new-beer (newBeerSender)="addBeer($event)"></new-beer>
     </div>
+
   </div>
   `
 })
 
 export class AppComponent {
   masterBeerList: Beer[] = [
-    new Beer("Eliot's IPA", "Eliot Brewing", "IPA", 6, "6.8%"),
-    new Beer("Rob's Rye Ale", "Rob's Brewing", "Pale Ale", 12, "9.8%"),
-    new Beer("Max's Strawberry Ale", "Max's Brewing", "Shandy", 5, "3%"),
-    new Beer("Xing's Stout", "Xing's Brewing", "Stout", 7, "7%")
+    new Beer("Eliot's IPA", "Eliot Brewing", "IPA", 6, 6, "6.8%"),
+    new Beer("Rob's Rye Ale", "Rob's Brewing", "Pale Ale", 12, 12, "9.8%"),
+    new Beer("Max's Strawberry Ale", "Max's Brewing", "Shandy", 5, 5, "3%"),
+    new Beer("Xing's Stout", "Xing's Brewing", "Stout", 7, 7, "7%")
   ];
 
   selectedBeer = null;

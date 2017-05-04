@@ -19,21 +19,21 @@ import { Beer } from './beer.model';
     </div>
     <div class="form-group">
       <label>Enter Price:</label>
-      <input class="form-control" #newPrice>
+      <input class="form-control" #newPrice #setprice>
     </div>
     <div class="form-group">
       <label>Enter Alcohol Content:</label>
       <input class="form-control" #newAlcoholContent>
     </div>
-      <button class="btn btn-success" (click)="submitNewBeer(newName.value, newBrand.value, newType.value, newPrice.value, newAlcoholContent.value); newName.value=''; newBrand.value=''; newType.value=''; newPrice.value=''; newAlcoholContent.value='';">Add</button>
+      <button class="btn btn-success" (click)="submitNewBeer(newName.value, newBrand.value, newType.value, newPrice.value, setprice.value, newAlcoholContent.value); newName.value=''; newBrand.value=''; newType.value=''; newPrice.value=''; newAlcoholContent.value='';">Add</button>
   `
 })
 export class NewBeerComponent {
   @Input() childBeerList: Beer[];
   @Output() newBeerSender = new EventEmitter();
 
-  submitNewBeer(name: string, brand: string, type: string, price: number, alcoholContent: string) {
-    var newBeerToAdd: Beer = new Beer(name, brand, type, price, alcoholContent);
+  submitNewBeer(name: string, brand: string, type: string, price: number, setprice: number, alcoholContent: string) {
+    var newBeerToAdd: Beer = new Beer(name, brand, type, price, setprice, alcoholContent);
     this.newBeerSender.emit(newBeerToAdd);
   }
 }

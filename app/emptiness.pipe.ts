@@ -11,7 +11,7 @@ export class EmptinessPipe implements PipeTransform {
     var output: Beer[] = [];
     if(desiredFilter === "lowKegs"){
       for (var i = 0; i < input.length; i++){
-        if(input[i].pints < 10) {
+        if(input[i].pints < 30) {
           output.push(input[i]);
         }
       }

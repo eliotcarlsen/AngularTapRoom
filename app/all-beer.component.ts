@@ -21,13 +21,14 @@ import { Beer } from './beer.model';
       <h3>{{currentBeer.name}}</h3>
       <h4>{{currentBeer.brand}}</h4>
       <p><strong>Style:</strong> {{currentBeer.type}}</p>
-      <p><strong>Price: </strong>$ {{currentBeer.price}}</p>
+      <p [class]="priorityColor(currentBeer)"><strong>Price: </strong>$ {{currentBeer.price}}</p>
       <p>{{currentBeer.alcoholContent}}</p>
       <p><strong>Pints remaining:</strong> {{currentBeer.pints}}</p>
       <button class="btn btn-primary btn-xs" (click)="editButtonHasBeenClicked(currentBeer)">Edit</button>
       <br>
       <br>
       <sold-beer [currentBeer]="currentBeer" (change)="soldBeer($event)"></sold-beer>
+      <keg-sale [ogKegList]="childBeerList" [currentBeer]="currentBeer" (change)="saleBeer($event)" (change)="regularBeer($event)"></keg-sale>
     </div>
   `
 })
@@ -38,6 +39,12 @@ export class AllBeerComponent {
 
   editButtonHasBeenClicked(beerToEdit: Beer){
     this.clickSender.emit(beerToEdit);
+  }
+  regularBeer(regularPriceOnBeer){
+
+  }
+  saleBeer(beerOnSale){
+
   }
   soldBeer(clickedToSell){
 
@@ -50,4 +57,13 @@ export class AllBeerComponent {
   onChange1(optionChosen){
     this.filterByType = optionChosen;
   }
+  priorityColor(currentBeer){
+  if (10 <= currentBeer.price){
+    return "bg-danger";
+  } else if (6 <= currentBeer.price) {
+    return  "bg-warning";
+  } else {
+    return "bg-info";
+  }
+}
 }

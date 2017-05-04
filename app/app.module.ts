@@ -9,11 +9,13 @@ import { SoldBeerComponent } from './sold-beer.component';
 import { EmptinessPipe } from './emptiness.pipe';
 // import { Type } from './type.pipe';
 import { FilterPipe } from './filter.pipe';
-import { FilterBeerComponent } from './filters.component'
+import { FilterBeerComponent } from './filters.component';
+import { KegSaleComponent } from './keg-sale.component';
+import { KegSalePipe } from './keg-sale.pipe';
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, AllBeerComponent, NewBeerComponent, EditBeerComponent, SoldBeerComponent, EmptinessPipe, FilterPipe, FilterBeerComponent ],
+  declarations: [ AppComponent, AllBeerComponent, NewBeerComponent, EditBeerComponent, SoldBeerComponent, EmptinessPipe, FilterPipe, FilterBeerComponent, KegSaleComponent, KegSalePipe ],
   bootstrap: [ AppComponent ]
 })
 
